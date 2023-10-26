@@ -1,15 +1,8 @@
 // Grab html elements
 
 const container = document.querySelector('#container');
-const square = document.querySelector('.square');
-
-// Create Square
-
-const createSquare = () => {
-  let newSquare = document.createElement('div');
-  newSquare.classList.add('square');
-  container.appendChild(newSquare);
-};
+const squares = document.querySelectorAll('.square');
+const button = document.querySelector('#button');
 
 // Event Listener to add divs to board on page load
 
@@ -31,7 +24,20 @@ container.addEventListener(
   true
 );
 
-// Functiont to reset board
+button.addEventListener('click', () => {
+  reset();
+  //   prompt('How big would you like your grid to be? (Maximum = 100)');
+});
+
+//Functions
 function reset() {
-  square.classList.remove('black');
+  while (container.firstChild) {
+    container.removeChild(container.lastChild);
+  }
+}
+
+function createSquare() {
+  let newSquare = document.createElement('div');
+  newSquare.classList.add('square');
+  container.appendChild(newSquare);
 }
