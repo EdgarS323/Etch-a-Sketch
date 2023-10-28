@@ -3,12 +3,12 @@
 const container = document.querySelector('#container');
 let squares = document.querySelectorAll('.square');
 const button = document.querySelector('#button');
-let gridSize = 10;
+let gridSize = 30;
 
 // Add Default grid
+createGrid(gridSize);
 
-createGrid(50);
-// Event Listener to change square color using Event Delegation on the Container Parent Element
+// Event Listeners
 
 container.addEventListener(
   'mouseover',
@@ -18,6 +18,15 @@ container.addEventListener(
   },
   true
 );
+
+button.addEventListener('click', () => {
+  reset();
+  let userSelected = prompt('Choose a number between 2 - 100 for your grid size');
+  while (userSelected > 100) {
+    userSelected = prompt('Choose a number between 2 - 100 for your grid size');
+  }
+  createGrid(userSelected);
+});
 
 //Functions
 
@@ -31,14 +40,14 @@ function createGrid(amount) {
   for (let i = 0; i < amount; i++) {
     let newSquare = document.createElement('div');
     newSquare.classList.add('square');
-    newSquare.style.width = `${700 / amount}px`;
-    newSquare.style.height = `${700 / amount}px`;
+    newSquare.style.width = `${container.clientWidth / amount}px`;
+    newSquare.style.height = `${container.clientHeight / amount}px`;
     container.appendChild(newSquare);
     for (let n = 0; n < amount; n++) {
       let innerSquare = document.createElement('div');
       innerSquare.classList.add('square');
-      innerSquare.style.width = `${700 / amount}px`;
-      innerSquare.style.height = `${700 / amount}px`;
+      innerSquare.style.width = `${container.clientWidth / amount}px`;
+      innerSquare.style.height = `${container.clientHeight / amount}px`;
       newSquare.appendChild(innerSquare);
     }
   }

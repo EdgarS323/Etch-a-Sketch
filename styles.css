@@ -14,10 +14,13 @@ body {
   margin: 20px auto;
   align-content: flex-start;
   background-color: antiquewhite;
+  border: 4px solid black;
+  border-radius: 5px;
 }
 
 .square {
-  border: 0.05px solid red;
+  border-bottom: 1px solid grey;
+  border-right: 1px solid gray;
 }
 
 .black {
