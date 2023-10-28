@@ -14,7 +14,9 @@ container.addEventListener(
   'mouseover',
   (e) => {
     e.stopPropagation();
-    e.target.classList.add('black');
+    if (e.target.classList.contains('square')) {
+      e.target.style.backgroundColor = randomColor();
+    }
   },
   true
 );
@@ -51,4 +53,12 @@ function createGrid(amount) {
       newSquare.appendChild(innerSquare);
     }
   }
+}
+
+function randomColor() {
+  let r = Math.floor(Math.random() * 256) + 1;
+  let g = Math.floor(Math.random() * 256) + 1;
+  let b = Math.floor(Math.random() * 256) + 1;
+  let rgb = `rgb(${r}, ${g}, ${b})`;
+  return rgb;
 }
