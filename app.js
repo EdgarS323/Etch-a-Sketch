@@ -1,33 +1,23 @@
 // Grab html elements
 
 const container = document.querySelector('#container');
-const squares = document.querySelectorAll('.square');
+let squares = document.querySelectorAll('.square');
 const button = document.querySelector('#button');
-let gridSize = 50;
+let gridSize = 10;
 
 // Add Default grid
 
-createGrid(gridSize);
-
+createGrid(50);
 // Event Listener to change square color using Event Delegation on the Container Parent Element
 
 container.addEventListener(
-  'mouseenter',
+  'mouseover',
   (e) => {
-    if (e.target.classList.contains('square')) {
-      e.target.classList.add('black');
-    }
+    e.stopPropagation();
+    e.target.classList.add('black');
   },
   true
 );
-
-// Reset board to user inputted grid size
-
-// button.addEventListener('click', () => {
-//   reset();
-//   let gridSize = prompt('How big would you like your grid to be? (Maximum = 100)');
-//   createGrid(gridSize);
-// });
 
 //Functions
 

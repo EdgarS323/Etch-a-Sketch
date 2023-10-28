@@ -15,9 +15,11 @@ body {
   align-content: flex-start;
   background-color: antiquewhite;
 }
+
 .square {
   border: 0.05px solid red;
 }
+
 .black {
   background-color: black;
 }
